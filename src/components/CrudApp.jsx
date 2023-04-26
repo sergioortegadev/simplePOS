@@ -7,7 +7,7 @@ const product = [
     id: 10000,
     category: 0,
     tags: ["bangho", "laptop", "celeron", "notebook"],
-    prodName: "$ Notebook Bangho Max L4 14'' Celeron 5205u 4gb 120gb Ssd Hd",
+    prodName: "Notebook Bangho Max L4 14'' Celeron 5205u 4gb 120gb Ssd Hd",
     description:
       "Notebook ideal para trasladar y uso casual, recomendamos para el hogar y navegar por internet.  *todos los equipos se entregan con sistema operativo instalado y programas basicos para el uso. Procesador: Marca: intel. Modelo: Celeron 5205u. Nucleos: 2. RAM: 4Gb. Pantalla 14''. Disco: 120Gb. Sistema Operativo Free Dos.",
     price: 111000,
@@ -244,7 +244,7 @@ const product = [
     images: ["/src/assets/product/10015-01.jpg"],
   },
   {
-    id: 10017,
+    id: 10016,
     category: 9,
     tags: ["teclado", "gamer"],
     prodName:
@@ -267,37 +267,27 @@ const CrudApp = () => {
 
   const [dataToEdit, setDataToEdit] = useState(null);
 
-  const createData = (data) => {
-    console.log(
-      "Largo db: " +
-        db.length +
-        " elementos | Último id usado: " +
-        db[db.length - 1].id +
-        "| Producto último id: " +
-        db[db.length - 1].prodName
-    );
-    let newId = 10000 + db.length;
+  const createData = (form) => {
+    // Nuevo id: se recorre la db y se busca el sigiente número
+    let idMayor = 1;
     db.forEach((el) => {
-      if (el.id === newId) {
-        console.log("Error de id en registro nuevo. Id repetido: " + newId);
-        return;
-      } else {
-        console.log("id disponible nuevo registro: " + newId);
-        data.id = 10000 + db.length;
-        setDb([...db, data]);
-        console.log("contenido ''data''");
-        console.log(data);
-        console.log("contenido ''dataToEdit''");
-        console.log(dataToEdit);
+      if (el.id >= idMayor) {
+        idMayor = el.id;
       }
     });
+    console.log(form);
+    idMayor++;
+    form.id = idMayor;
+    // Tomamos la db y le agregamos data
+    setDb([...db, form]);
+    console.log(db);
   };
-  const updateData = (data) => {};
+
+  const updateData = (form) => {};
   const deleteData = (id) => {};
 
   return (
     <>
-      <h2>-----CRUD - APP ----</h2>
       <CrudForm
         createData={createData}
         updateData={updateData}
@@ -305,6 +295,7 @@ const CrudApp = () => {
         setDataToEdit={setDataToEdit}
       />
       <CrudTable
+        key={db.id}
         data={db}
         setDataToEdit={setDataToEdit}
         deleteData={deleteData}

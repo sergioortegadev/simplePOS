@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 const initialForm = {
-  id: undefined,
-  category: undefined,
+  id: null,
+  category: "",
   tags: "",
   prodName: "",
   description: "",
-  price: undefined,
-  stock: undefined,
+  price: "",
+  stock: "",
   images: "",
 };
 
@@ -14,28 +14,71 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initialForm);
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    // Actualizamos la var de estado "form", tomando lo que tenía, y con spread operator agregamos lo que viene en cada input.
+    //En los input de texto esto es suficiente. Para números, arreglos y otros, hay que usar el siguiente switch: para ajustar el tipo de dato antes de pasarlo a la var de estado.
+    switch (e.target.name) {
+      case "category":
+        setForm({
+          ...form,
+          [e.target.name]: parseInt(e.target.value),
+        });
+        break;
+
+      case "stock":
+        setForm({
+          ...form,
+          [e.target.name]: parseInt(e.target.value),
+        });
+        break;
+
+      case "price":
+        setForm({
+          ...form,
+          [e.target.name]: parseFloat(e.target.value),
+        });
+        break;
+
+      case "tags":
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value.split(","),
+        });
+        break;
+
+      case "images":
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value.split(","),
+        });
+        break;
+
+      default:
+        setForm({
+          ...form,
+          [e.target.name]: e.target.value,
+        });
+        break;
+    }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (
-    //   !form.category ||
-    //   !form.tags ||
-    //   !form.prodName ||
-    //   !form.description ||
-    //   !form.price ||
-    //   !form.stock
-    // ) {
-    //   alert("Datos incompletos");
-    //   return;
-    // }
+    if (
+      !form.category ||
+      !form.tags ||
+      !form.prodName ||
+      !form.description ||
+      !form.price ||
+      !form.stock
+    ) {
+      alert("Datos incompletos");
+      return;
+    }
 
-    if (form.id === undefined) {
+    if (form.id === null) {
       createData(form);
+      console.log(form);
     } else {
       updateData(form);
     }
@@ -49,15 +92,14 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   return (
     <>
-      <h3>Ingresar Productos</h3>
       <form onSubmit={handleSubmit}>
-        <input
+        {/* <input
           type="number"
           name="id"
           placeholder="id (5 cifras)"
           onChange={handleChange}
           value={form.id}
-        />
+        /> */}
         <input
           type="number"
           name="category"

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import CrudApp from "./CrudApp";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <button>
         <Link to="/init">Initial Template</Link>
       </button>
+      <CrudApp />
     </>
   );
 };

@@ -4,14 +4,14 @@
       "id": 10000,
       "category": 0,
       "tags": ["bangho", "laptop", "celeron", "notebook"],
-      "prodName": "Notebook Bangho Max L4 14'' Celeron 5205u 4gb 120gb Ssd Hd",
+      "prodName": "$ Notebook Bangho Max L4 14'' Celeron 5205u 4gb 120gb Ssd Hd",
       "description": "Notebook ideal para trasladar y uso casual, recomendamos para el hogar y navegar por internet.  *todos los equipos se entregan con sistema operativo instalado y programas basicos para el uso. Procesador: Marca: intel. Modelo: Celeron 5205u. Nucleos: 2. RAM: 4Gb. Pantalla 14''. Disco: 120Gb. Sistema Operativo Free Dos.",
       "price": 111000,
       "stock": 10,
       "images": [
-        "/assets/product/10000-01.jpg",
-        "/assets/product/10000-02.jpg",
-        "/assets/product/10000-03.jpg"
+        "/src/assets/product/10000-01.jpg",
+        "/src/assets/product/10000-02.jpg",
+        "/src/assets/product/10000-03.jpg"
       ]
     },
     {
@@ -23,9 +23,9 @@
       "price": 216000,
       "stock": 5,
       "images": [
-        "/assets/product/10001-01.jpg",
-        "/assets/product/10001-02.jpg",
-        "/assets/product/10001-03.jpg"
+        "/src/assets/product/10001-01.jpg",
+        "/src/assets/product/10001-02.jpg",
+        "/src/assets/product/10001-03.jpg"
       ]
     },
     {
@@ -37,10 +37,10 @@
       "price": 1154,
       "stock": 20,
       "images": [
-        "/assets/product/10002-01.jpg",
-        "/assets/product/10002-02.jpg",
-        "/assets/product/10002-03.jpg",
-        "/assets/product/10002-04.jpg"
+        "/src/assets/product/10002-01.jpg",
+        "/src/assets/product/10002-02.jpg",
+        "/src/assets/product/10002-03.jpg",
+        "/src/assets/product/10002-04.jpg"
       ]
     },
     {
@@ -52,10 +52,10 @@
       "price": 75999,
       "stock": 15,
       "images": [
-        "/assets/product/10003-01.jpg",
-        "/assets/product/10003-02.jpg",
-        "/assets/product/10003-03.jpg",
-        "/assets/product/10003-04.jpg"
+        "/src/assets/product/10003-01.jpg",
+        "/src/assets/product/10003-02.jpg",
+        "/src/assets/product/10003-03.jpg",
+        "/src/assets/product/10003-04.jpg"
       ]
     },
     {
@@ -67,11 +67,11 @@
       "price": 609999,
       "stock": 0,
       "images": [
-        "/assets/product/10004-01.jpg",
-        "/assets/product/10004-02.jpg",
-        "/assets/product/10004-03.jpg",
-        "/assets/product/10004-04.jpg",
-        "/assets/product/10004-05.jpg"
+        "/src/assets/product/10004-01.jpg",
+        "/src/assets/product/10004-02.jpg",
+        "/src/assets/product/10004-03.jpg",
+        "/src/assets/product/10004-04.jpg",
+        "/src/assets/product/10004-05.jpg"
       ]
     },
     {
@@ -83,9 +83,9 @@
       "price": 77999,
       "stock": 3,
       "images": [
-        "/assets/product/10005-01.jpg",
-        "/assets/product/10005-02.jpg",
-        "/assets/product/10005-03.jpg"
+        "/src/assets/product/10005-01.jpg",
+        "/src/assets/product/10005-02.jpg",
+        "/src/assets/product/10005-03.jpg"
       ]
     },
     {
@@ -96,7 +96,7 @@
       "description": "Cable micro USB. Cable carga rapida. Largo 1.00 Mts. Salida de tension 2.1A Max",
       "price": 569,
       "stock": 25,
-      "images": ["/assets/product/10006-01.jpg"]
+      "images": ["/src/assets/product/10006-01.jpg"]
     },
     {
       "id": 10007,
@@ -107,9 +107,9 @@
       "price": 81584,
       "stock": 3,
       "images": [
-        "/assets/product/10007-01.jpg",
-        "/assets/product/10007-02.jpg",
-        "/assets/product/10007-03.jpg"
+        "/src/assets/product/10007-01.jpg",
+        "/src/assets/product/10007-02.jpg",
+        "/src/assets/product/10007-03.jpg"
       ]
     },
     {
@@ -120,7 +120,10 @@
       "description": "Sensor de frecuencia cardíaca - Acelerómetro - Sensor de temperatura. Certificación IP67. LCD de 1.69 pulgadas con resolución 240x280p",
       "price": 27000,
       "stock": 10,
-      "images": ["/assets/product/10008-01.jpg", "/assets/product/10008-02.jpg"]
+      "images": [
+        "/src/assets/product/10008-01.jpg",
+        "/src/assets/product/10008-02.jpg"
+      ]
     },
     {
       "id": 10009,
@@ -130,7 +133,7 @@
       "description": "Este original audífono con micrófono ostenta unidades excitadoras de 40mm que presentan una respuesta en frecuencia amplia, una distorsión baja, así como graves profundos que se escuchan con una fidelidad asombrosa. El audífono de cápsula cerrada, no solo brinda comodidad, sino que además aísla efectivamente el ruido de fondo. La cápsula de mando con micrófono prendida de un cable plano le confiere un sentido de funcionalidad y estilo. El equilibrio perfecto entre lo práctico y un sonido excepcional es lo que encontrarás en este nuevo auricular de Klip Xtreme.",
       "price": 2461,
       "stock": 15,
-      "images": ["/assets/product/10009-01.jpg"]
+      "images": ["/src/assets/product/10009-01.jpg"]
     },
     {
       "id": 10010,
@@ -140,7 +143,10 @@
       "description": "Bluetooth 5.3. Alcance: unos 10 metros (sin ningún obstáculo). Tiempo de carga de los auriculares: aproximadamente 1,5 horas. Duración de la batería de los auriculares: 5 horas de reproducción",
       "price": 8000,
       "stock": 2,
-      "images": ["/assets/product/10010-01.jpg", "/assets/product/10010-02.jpg"]
+      "images": [
+        "/src/assets/product/10010-01.jpg",
+        "/src/assets/product/10010-02.jpg"
+      ]
     },
     {
       "id": 10011,
@@ -150,7 +156,10 @@
       "description": "PCI Express. Tipo de Antena: Desmontable omnidireccional (RP-SMA)Ganancia de la Antena: 2dBi",
       "price": 4500,
       "stock": 1,
-      "images": ["/assets/product/10011-01.jpg", "/assets/product/10011-02.jpg"]
+      "images": [
+        "/src/assets/product/10011-01.jpg",
+        "/src/assets/product/10011-02.jpg"
+      ]
     },
     {
       "id": 10012,
@@ -161,9 +170,9 @@
       "price": 7000,
       "stock": 3,
       "images": [
-        "/assets/product/10012-01.jpg",
-        "/assets/product/10012-02.jpg",
-        "/assets/product/10012-03.jpg"
+        "/src/assets/product/10012-01.jpg",
+        "/src/assets/product/10012-02.jpg",
+        "/src/assets/product/10012-03.jpg"
       ]
     },
     {
@@ -175,9 +184,9 @@
       "price": 65000,
       "stock": 4,
       "images": [
-        "/assets/product/10013-01.jpg",
-        "/assets/product/10013-02.jpg",
-        "/assets/product/10013-03.jpg"
+        "/src/assets/product/10013-01.jpg",
+        "/src/assets/product/10013-02.jpg",
+        "/src/assets/product/10013-03.jpg"
       ]
     },
     {
@@ -197,10 +206,10 @@
       "price": 80000,
       "stock": 9,
       "images": [
-        "/assets/product/10014-01.jpg",
-        "/assets/product/10014-02.jpg",
-        "/assets/product/10014-03.jpg",
-        "/assets/product/10014-04.jpg"
+        "/src/assets/product/10014-01.jpg",
+        "/src/assets/product/10014-02.jpg",
+        "/src/assets/product/10014-03.jpg",
+        "/src/assets/product/10014-04.jpg"
       ]
     },
     {
@@ -211,7 +220,7 @@
       "description": "Teclado de membrana y mouse óptico. Conexión: receptor usb nano. Distancia de operacion: 8mt, maximo hasta 10m. Frecuencia: tecnologia inalambrica 2.4 Ghz. Dimensión: teclado 449 x 168 x 28.3mm. Mouse 109 x 67 x 34 mm. Batería 4 x aaa (no incluídas). Distribucion teclado: español es",
       "price": 4500,
       "stock": 30,
-      "images": ["/assets/product/10015-01.jpg"]
+      "images": ["/src/assets/product/10015-01.jpg"]
     },
     {
       "id": 10016,
@@ -222,10 +231,10 @@
       "price": 15000,
       "stock": 12,
       "images": [
-        "/assets/product/10016-01.jpg",
-        "/assets/product/10016-02.jpg",
-        "/assets/product/10016-03.jpg",
-        "/assets/product/10016-04.jpg"
+        "/src/assets/product/10016-01.jpg",
+        "/src/assets/product/10016-02.jpg",
+        "/src/assets/product/10016-03.jpg",
+        "/src/assets/product/10016-04.jpg"
       ]
     }
   ],

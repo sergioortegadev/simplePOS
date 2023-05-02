@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const initialForm = {
   id: null,
   category: "",
@@ -10,8 +10,15 @@ const initialForm = {
   images: "",
 };
 
+// eslint-disable-next-line react/prop-types
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initialForm);
+
+  useEffect(() => {
+    if (dataToEdit) {
+      setForm(dataToEdit);
+    } else setForm(initialForm);
+  }, [dataToEdit]);
 
   const handleChange = (e) => {
     // Actualizamos la var de estado "form", tomando lo que tenía, y con spread operator agregamos lo que viene en cada input.
@@ -85,14 +92,14 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
     handleReset();
   };
-  const handleReset = (e) => {
+  const handleReset = () => {
     setForm(initialForm);
     setDataToEdit(null);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         {/* <input
           type="number"
           name="id"
@@ -149,8 +156,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           onChange={handleChange}
           value={form.images}
         />
-        <input type="submit" value="Enviar" />
-        <input type="reset" value="Limpiar" onClick={handleReset} />
+        <div className="input-btn-div">
+          <input type="submit" value="Enviar" />
+          <input type="reset" value="Limpiar" onClick={handleReset} />
+        </div>
       </form>
     </>
   );

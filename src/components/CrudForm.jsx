@@ -99,68 +99,102 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit}>
-        {/* <input
+      <div className="form-container">
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-input-and-dnd">
+            <div className="form-inputs">
+              <label>
+                Nombre Producto
+                <input
+                  type="text"
+                  name="prodName"
+                  placeholder="Título de la publicación. Nombre producto"
+                  onChange={handleChange}
+                  value={form.prodName}
+                />
+              </label>
+              <label>
+                Descripción completa
+                <textarea
+                  type="text"
+                  name="description"
+                  placeholder="Descripción del producto"
+                  onChange={handleChange}
+                  value={form.description}
+                />
+              </label>
+              <label>
+                Precio
+                <input
+                  type="number"
+                  name="price"
+                  placeholder="Precio"
+                  onChange={handleChange}
+                  value={form.price}
+                />
+              </label>
+              <label>
+                Stock
+                <input
+                  type="number"
+                  name="stock"
+                  placeholder="Stock - Existencias"
+                  onChange={handleChange}
+                  value={form.stock}
+                />
+              </label>
+              <label>
+                # Categoría
+                <input
+                  type="number"
+                  name="category"
+                  placeholder="Número de categoría"
+                  onChange={handleChange}
+                  value={form.category}
+                />
+              </label>
+              <label>
+                Etiquetas
+                <input
+                  type="text"
+                  name="tags"
+                  placeholder="Separados por coma"
+                  onChange={handleChange}
+                  value={form.tags}
+                />
+              </label>
+
+              {/* 
+              <label>
+                Fotos
+                <input
+                  type="text"
+                  name="images"
+                  placeholder="[''/src/assets/product/id-01.jpg'']"
+                  onChange={handleChange}
+                  value={form.images}
+                />
+              </label>
+              
+              <input
           type="number"
           name="id"
           placeholder="id (5 cifras)"
           onChange={handleChange}
           value={form.id}
-        /> */}
-        <input
-          type="number"
-          name="category"
-          placeholder="Número de categoría"
-          onChange={handleChange}
-          value={form.category}
-        />
-        <input
-          type="text"
-          name="tags"
-          placeholder="Tags separados por coma"
-          onChange={handleChange}
-          value={form.tags}
-        />
-        <input
-          type="text"
-          name="prodName"
-          placeholder="Título de la publicación. Nombre producto"
-          onChange={handleChange}
-          value={form.prodName}
-        />
-        <input
-          type="text"
-          name="description"
-          placeholder="Descripción del producto"
-          onChange={handleChange}
-          value={form.description}
-        />
-        <input
-          type="number"
-          name="price"
-          placeholder="Precio"
-          onChange={handleChange}
-          value={form.price}
-        />
-        <input
-          type="number"
-          name="stock"
-          placeholder="Stock - Existencias"
-          onChange={handleChange}
-          value={form.stock}
-        />
-        <input
-          type="text"
-          name="images"
-          placeholder="[''/src/assets/product/id-01.jpg'']"
-          onChange={handleChange}
-          value={form.images}
-        />
-        <div className="input-btn-div">
-          <input type="submit" value="Enviar" />
-          <input type="reset" value="Limpiar" onClick={handleReset} />
-        </div>
-      </form>
+         /> 
+              */}
+            </div>
+            <div className="form-dnd">
+              <img src="../src/assets/dnd.jpg" alt="drag and" />
+            </div>
+          </div>
+          <div className="form-input-btn-div">
+            <input type="submit" value="Enviar" />
+            <input type="reset" value="Limpiar" onClick={handleReset} />
+          </div>
+        </form>
+      </div>
     </>
   );
 };

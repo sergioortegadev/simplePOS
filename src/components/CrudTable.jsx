@@ -4,24 +4,24 @@ import CrudTableRow from "./CrudTableRow";
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
   return (
     <>
-      <h3> [ - Base de Datos Completa - ]</h3>
+      <h3> [ - Tabla con Base de Datos Completa - ]</h3>
       <table className="table">
-        {/* <thead>
+        <thead className="thead">
           <tr>
+            <th>{/* Foto */}</th>
             <th>Category</th>
             <th>Tags</th>
             <th>Nombre Producto</th>
             <th>Descripción</th>
             <th>Precio</th>
-            <th>Stock - Existencias</th>
-            <th>Foto</th>
-            <th>[Acciones]</th>
+            <th>Stock</th>
+            <th>{/* Acciones */}</th>
           </tr>
-        </thead> */}
-        <tbody className="cards-conteneiner">
+        </thead>
+        <tbody>
           {data.length === 0 ? (
-            <tr>
-              <td colSpan="3"> - Sin Datos - </td>
+            <tr className="sin-datos">
+              <td colSpan="8"> - Sin Datos - </td>
             </tr>
           ) : (
             data.map((el) => (

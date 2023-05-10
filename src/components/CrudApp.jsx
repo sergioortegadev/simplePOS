@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
+import CrudCards from "./CrudCards";
 
 const product = [
   {
@@ -262,7 +263,7 @@ const product = [
   },
 ];
 
-const CrudApp = () => {
+const CrudApp = ({ openForm, openTable, openCards }) => {
   const [db, setDb] = useState(product);
 
   const [dataToEdit, setDataToEdit] = useState(null);
@@ -288,18 +289,30 @@ const CrudApp = () => {
 
   return (
     <>
-      <CrudForm
-        createData={createData}
-        updateData={updateData}
-        dataToEdit={dataToEdit}
-        setDataToEdit={setDataToEdit}
-      />
-      <CrudTable
-        key={db.id}
-        data={db}
-        setDataToEdit={setDataToEdit}
-        deleteData={deleteData}
-      />
+      {openForm && (
+        <CrudForm
+          createData={createData}
+          updateData={updateData}
+          dataToEdit={dataToEdit}
+          setDataToEdit={setDataToEdit}
+        />
+      )}
+      {openTable && (
+        <CrudTable
+          key={db.id}
+          data={db}
+          setDataToEdit={setDataToEdit}
+          deleteData={deleteData}
+        />
+      )}
+      {openCards && (
+        <CrudCards
+          key={db.id}
+          data={db}
+          setDataToEdit={setDataToEdit}
+          deleteData={deleteData}
+        />
+      )}
     </>
   );
 };

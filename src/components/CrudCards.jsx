@@ -1,10 +1,10 @@
-import React from "react";
 import CrudCardRow from "./CrudCardRow";
+import CrudHeader from "./CrudHeader";
 
 const CrudCard = ({ data, setDataToEdit, deleteData }) => {
   return (
     <>
-      <h3> [ - Cards con toda la Base - ]</h3>
+      <CrudHeader />
       <div className="cards-conteneiner">
         {data.length === 0 ? (
           <div className="sin-datos">

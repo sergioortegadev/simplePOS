@@ -2,6 +2,8 @@ import { useState } from "react";
 import CrudForm from "./CrudForm";
 import CrudTable from "./CrudTable";
 import CrudCards from "./CrudCards";
+import { useContext } from "react";
+import NavContext from "../context/NavContext";
 
 const product = [
   {
@@ -263,7 +265,13 @@ const product = [
   },
 ];
 
-const CrudApp = ({ openForm, openTable, openCards }) => {
+const CrudApp = (
+  {
+    /* openForm, openTable, openCards, openNav */
+  }
+) => {
+  const { openForm, openTable, openCards, openNav } = useContext(NavContext);
+
   const [db, setDb] = useState(product);
 
   const [dataToEdit, setDataToEdit] = useState(null);
@@ -303,6 +311,7 @@ const CrudApp = ({ openForm, openTable, openCards }) => {
           data={db}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
+          openNav={openNav}
         />
       )}
       {openCards && (

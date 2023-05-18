@@ -1,43 +1,11 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CrudApp from "./CrudApp";
+import { useContext } from "react";
+import NavContext from "../context/NavContext";
 
 const Home = () => {
-  // NAV buttons
-  const [openForm, setOpenForm] = useState(false);
-  const [openTable, setOpenTable] = useState(false);
-  const [openCards, setOpenCards] = useState(false);
-  const openNav = (btn) => {
-    switch (btn) {
-      case "form":
-        {
-          setOpenForm(true);
-          setOpenTable(false);
-          setOpenCards(false);
-        }
-        break;
-
-      case "table":
-        {
-          setOpenTable(true);
-          setOpenForm(false);
-          setOpenCards(false);
-        }
-        break;
-
-      case "cards":
-        {
-          setOpenCards(true);
-          setOpenForm(false);
-          setOpenTable(false);
-        }
-        break;
-
-      default:
-        console.log("bnt apretado");
-        break;
-    }
-  };
+  // NAV-Buttons through useContext
+  const { openForm, openTable, openCards, openNav } = useContext(NavContext);
 
   return (
     <main className="contenedor">
@@ -45,25 +13,21 @@ const Home = () => {
       <h1>simplePOS</h1>
 
       <nav className="nav">
-        <button>
-          <NavLink to="/init" className="nav-btn" activeclassname="active">
+        <button className="nav-btn" onClick={(e) => openNav("home")}>
+          <Link to="/" activeclassname="active">
+            Home
+          </Link>
+        </button>
+        <button className="nav-btn" onClick={(e) => openNav("table")}>
+          <Link activeclassname="active">DB Tabla</Link>
+        </button>
+        <button className="nav-btn" onClick={(e) => openNav("cards")}>
+          <Link activeclassname="active">DB Cards</Link>
+        </button>
+        <button className="nav-btn">
+          <Link to="/init" activeclassname="active">
             Initial Template
-          </NavLink>
-        </button>
-        <button onClick={(e) => openNav("form")}>
-          <NavLink className="nav-btn" activeclassname="active">
-            Cargar Datos
-          </NavLink>
-        </button>
-        <button onClick={(e) => openNav("table")}>
-          <NavLink className="nav-btn" activeclassname="active">
-            DB Tabla
-          </NavLink>
-        </button>
-        <button onClick={(e) => openNav("cards")}>
-          <NavLink className="nav-btn" activeclassname="active">
-            DB Cards
-          </NavLink>
+          </Link>
         </button>
       </nav>
       <CrudApp

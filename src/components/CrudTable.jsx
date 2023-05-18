@@ -1,18 +1,18 @@
-import React from "react";
 import CrudTableRow from "./CrudTableRow";
+import CrudHeader from "./CrudHeader";
 
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
   return (
     <>
-      <h3> [ - Tabla con Base de Datos Completa - ]</h3>
+      <CrudHeader />
       <table className="table">
         <thead className="thead">
           <tr>
             <th>{/* Foto */}</th>
             <th>Category</th>
-            <th>Tags</th>
+            {/* <th>Tags</th> */}
             <th>Nombre Producto</th>
-            <th>Descripción</th>
+            {/* <th>Descripción</th> */}
             <th>Precio</th>
             <th>Stock</th>
             <th>{/* Acciones */}</th>

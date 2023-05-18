@@ -103,7 +103,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-input-and-dnd">
             <div className="form-inputs">
-              <label>
+              <label className="label-prodName">
                 Nombre Producto
                 <input
                   type="text"
@@ -113,7 +113,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   value={form.prodName}
                 />
               </label>
-              <label>
+              <label className="label-description">
                 Descripción completa
                 <textarea
                   type="text"
@@ -123,7 +123,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   value={form.description}
                 />
               </label>
-              <label>
+              <label className="label-price">
                 Precio
                 <input
                   type="number"
@@ -133,7 +133,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   value={form.price}
                 />
               </label>
-              <label>
+              <label className="label-stock">
                 Stock
                 <input
                   type="number"
@@ -143,7 +143,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   value={form.stock}
                 />
               </label>
-              <label>
+              <label className="label-category">
                 # Categoría
                 <input
                   type="number"
@@ -153,7 +153,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                   value={form.category}
                 />
               </label>
-              <label>
+              <label className="label-tags">
                 Etiquetas
                 <input
                   type="text"

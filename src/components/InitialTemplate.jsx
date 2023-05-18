@@ -2,9 +2,14 @@ import { useState } from "react";
 import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import NavContext from "../context/NavContext";
 
 const InitialTemplate = () => {
-  const [count, setCount] = useState(0);
+  const { openNav } = useContext(NavContext);
+
+  const [count, setCount] = useState(1);
+
   return (
     <>
       <div>
@@ -23,15 +28,26 @@ const InitialTemplate = () => {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button> {count}</button>
-        <br />
-        <br />
-        <button onClick={() => setCount((count) => count + 1)}>
-          Aprete y contará
+        <button>
+          Experiencia: {count} {count === 1 ? "año" : "años"}
         </button>
         <br />
         <br />
-        <button onClick={() => setCount((count) => count - 1)}>
+        <button onClick={() => setCount((count) => count + 1)}>
+          Sumar años de experiencia
+        </button>
+        <br />
+        <br />
+        <button
+          onClick={() => {
+            if (count > 0) {
+              setCount((count) => count - 1);
+            } else
+              alert(
+                "PARAAA!!! no se puede restar años cuando estás en cero ja ja 🤣"
+              );
+          }}
+        >
           Aprete y descontará
         </button>
         <p>
@@ -42,7 +58,7 @@ const InitialTemplate = () => {
         Click on the Vite and React logos to learn more
       </p>
 
-      <button>
+      <button className="nav-btn" onClick={(e) => openNav("home")}>
         <Link to="/">Home</Link>
       </button>
     </>

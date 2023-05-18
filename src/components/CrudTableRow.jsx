@@ -8,16 +8,14 @@ const CrudTableRow = ({ datosElemento, setDataToEdit, deleteData }) => {
           <img src={datosElemento.images[0]} alt={datosElemento.prodName} />
         </td>
         <td>{datosElemento.category}</td>
-        <td>{datosElemento.tags}</td>
+        {/* <td>{datosElemento.tags}</td> */}
         <td className="nombre-td">{datosElemento.prodName}</td>
-        <td>{datosElemento.description}</td>
+        {/* <td>{datosElemento.description}</td> */}
         <td className="precio-td">{"$ " + datosElemento.price}</td>
         <td>{datosElemento.stock}</td>
         <td className="btn-td">
-          <button onClick={() => setDataToEdit(datosElemento)}>
-            ✏️ Editar
-          </button>
-          <button onClick={() => deleteData(id)}>❌ Eliminar</button>
+          <button onClick={() => setDataToEdit(datosElemento)}>✏️</button>
+          <button onClick={() => deleteData(id)}>❌ </button>
         </td>
       </tr>
     </>

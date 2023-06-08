@@ -5,7 +5,8 @@ import NavContext from "../context/NavContext";
 
 const Home = () => {
   // NAV-Buttons through useContext
-  const { openForm, openTable, openCards, openNav } = useContext(NavContext);
+  const { openForm, openFormEdit, openTable, openCards, openNav } =
+    useContext(NavContext);
 
   return (
     <main className="contenedor">
@@ -32,6 +33,7 @@ const Home = () => {
       </nav>
       <CrudApp
         openForm={openForm}
+        openFormEdit={openFormEdit}
         openTable={openTable}
         openCards={openCards}
       />

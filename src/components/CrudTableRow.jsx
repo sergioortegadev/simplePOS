@@ -1,20 +1,45 @@
-const CrudTableRow = ({ datosElemento, setDataToEdit, deleteData }) => {
+import { useContext } from "react";
+import NavContext from "../context/NavContext";
+
+const CrudTableRow = ({
+  datosElemento,
+  setDataToEdit,
+  deleteData,
+  openModal,
+}) => {
   let { id, category, tags, prodName, description, price, stock } =
     datosElemento;
+
+  const { openNav } = useContext(NavContext);
   return (
     <>
       <tr className="figure-table-row">
-        <td className="foto-td">
-          <img src={datosElemento.images[0]} alt={datosElemento.prodName} />
+        <td onClick={(e) => openModal(id)} className="foto-td">
+          {datosElemento.images[0] ? (
+            <img src={datosElemento.images[0]} alt={datosElemento.prodName} />
+          ) : (
+            <img src="../src/assets/no-fotos.png" alt="" />
+          )}
         </td>
-        <td>{datosElemento.category}</td>
+        <td onClick={(e) => openModal(id)}>{datosElemento.category}</td>
         {/* <td>{datosElemento.tags}</td> */}
-        <td className="nombre-td">{datosElemento.prodName}</td>
+        <td onClick={(e) => openModal(id)} className="nombre-td">
+          {datosElemento.prodName}
+        </td>
         {/* <td>{datosElemento.description}</td> */}
-        <td className="precio-td">{"$ " + datosElemento.price}</td>
-        <td>{datosElemento.stock}</td>
+        <td onClick={(e) => openModal(id)} className="precio-td">
+          {"$ " + datosElemento.price}
+        </td>
+        <td onClick={(e) => openModal(id)}>{datosElemento.stock}</td>
         <td className="btn-td">
-          <button onClick={() => setDataToEdit(datosElemento)}>✏️</button>
+          <button
+            onClick={() => {
+              setDataToEdit(datosElemento);
+              openNav("edit");
+            }}
+          >
+            ✏️
+          </button>
           <button onClick={() => deleteData(id)}>❌ </button>
         </td>
       </tr>

@@ -1,7 +1,7 @@
 import CrudTableRow from "./CrudTableRow";
 import CrudHeader from "./CrudHeader";
 
-const CrudTable = ({ data, setDataToEdit, deleteData }) => {
+const CrudTable = ({ data, setDataToEdit, deleteData, openModal }) => {
   return (
     <>
       <CrudHeader />
@@ -30,6 +30,7 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
                 datosElemento={el}
                 setDataToEdit={setDataToEdit}
                 deleteData={deleteData}
+                openModal={openModal}
               />
             ))
           )}

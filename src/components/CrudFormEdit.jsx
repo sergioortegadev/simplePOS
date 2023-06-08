@@ -14,7 +14,7 @@ const initialForm = {
 };
 
 // eslint-disable-next-line react/prop-types
-const CrudForm = ({ createData, dataToEdit, setDataToEdit }) => {
+const CrudFormEdit = ({ updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initialForm);
 
   const { openNav } = useContext(NavContext);
@@ -22,6 +22,7 @@ const CrudForm = ({ createData, dataToEdit, setDataToEdit }) => {
   useEffect(() => {
     if (dataToEdit) {
       setForm(dataToEdit);
+      openNav("edit");
     } else setForm(initialForm);
   }, [dataToEdit]);
 
@@ -88,7 +89,7 @@ const CrudForm = ({ createData, dataToEdit, setDataToEdit }) => {
       return;
     }
 
-    createData(form);
+    updateData(form);
 
     handleReset();
   };
@@ -192,7 +193,11 @@ const CrudForm = ({ createData, dataToEdit, setDataToEdit }) => {
               */}
             </div>
             <div className="form-dnd">
-              <img src="../src/assets/dnd.jpg" alt="drag and" />
+              {form.images[0] ? (
+                <img src={form.images[0]} alt={form.prodName} />
+              ) : (
+                <img src="../src/assets/no-fotos.png" alt="" />
+              )}
             </div>
           </div>
           <div className="form-input-btn-div">
@@ -205,4 +210,4 @@ const CrudForm = ({ createData, dataToEdit, setDataToEdit }) => {
   );
 };
 
-export default CrudForm;
+export default CrudFormEdit;

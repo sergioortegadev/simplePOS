@@ -1,10 +1,16 @@
 import { useState } from "react";
+import { useModal } from "./hooks/useModal.jsx";
+import { FigureModalAdmin } from "./FigureModalAdmin.jsx";
 import CrudForm from "./CrudForm";
+import CrudFormEdit from "./CrudFormEdit";
 import CrudTable from "./CrudTable";
 import CrudCards from "./CrudCards";
 import { useContext } from "react";
 import NavContext from "../context/NavContext";
+import db from "../db/db.json";
 
+const product = db.product;
+/* 
 const product = [
   {
     id: 10000,
@@ -264,13 +270,33 @@ const product = [
     ],
   },
 ];
+ */
 
-const CrudApp = (
-  {
-    /* openForm, openTable, openCards, openNav */
+const CrudApp = () => {
+  /* Apertura y Cierre Ventanas Modales */
+  const [isOpenModal, openModal, closeModal] = useModal(false);
+
+  // Esta var de estado envía los datos del producto mediante props al componente FigureModal que se abre como una ventana modal
+  const [data, setData] = useState({});
+
+  function openOneModal(id) {
+    setData({});
+    product.forEach((el) => {
+      if (id === el.id) {
+        setData({
+          id: el.id,
+          prodName: el.prodName,
+          description: el.description,
+          price: el.price,
+          image: el.images[0],
+        });
+      }
+    });
+    openModal();
   }
-) => {
-  const { openForm, openTable, openCards, openNav } = useContext(NavContext);
+
+  const { openForm, openFormEdit, openTable, openCards } =
+    useContext(NavContext);
 
   const [db, setDb] = useState(product);
 
@@ -284,7 +310,7 @@ const CrudApp = (
         idMayor = el.id;
       }
     });
-    console.log(form);
+    // console.log(form);
     idMayor++;
     form.id = idMayor;
     // Tomamos la db y le agregamos data
@@ -292,8 +318,25 @@ const CrudApp = (
     console.log(db);
   };
 
-  const updateData = (form) => {};
-  const deleteData = (id) => {};
+  const updateData = (form) => {
+    // Busco en la base (db) el id del dato a modificar que viene en "form" (form.id, cuando coincida que le asigne todo lo que viene en "form" a la var newData y la guarde en la base.)
+    let newData = db.map((el) => (el.id === form.id ? form : el));
+    setDb(newData);
+  };
+  const deleteData = (id) => {
+    let isDelete = window.confirm(`Confirmar eliminación`);
+
+    if (isDelete) {
+      // en el siguiente newData filtro la base para guardar todos los registros menos el que tiene el id que quiero eliminar.
+      let newData = db.filter((el) => el.id !== id);
+      setDb(newData);
+    } else {
+      return;
+    }
+  };
+
+  /* CANTIDAD de unidades para agregar al carrito, dentro de las Modales */
+  const [cantidad, setCantidad] = useState(1);
 
   return (
     <>
@@ -305,13 +348,20 @@ const CrudApp = (
           setDataToEdit={setDataToEdit}
         />
       )}
+      {openFormEdit && (
+        <CrudFormEdit
+          updateData={updateData}
+          dataToEdit={dataToEdit}
+          setDataToEdit={setDataToEdit}
+        />
+      )}
       {openTable && (
         <CrudTable
           key={db.id}
           data={db}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
-          openNav={openNav}
+          openModal={openOneModal}
         />
       )}
       {openCards && (
@@ -320,6 +370,21 @@ const CrudApp = (
           data={db}
           setDataToEdit={setDataToEdit}
           deleteData={deleteData}
+          openModal={openOneModal}
+        />
+      )}
+
+      {/*  - - Modals - - */}
+      {isOpenModal && (
+        <FigureModalAdmin
+          key={data.id}
+          data={data}
+          isOpenModal={isOpenModal}
+          closeModal={closeModal}
+          cantidad={cantidad}
+          /*  sumarCantidad={sumarCantidad}
+          restarCantidad={restarCantidad}
+          agregarCarrito={agregarCarrito} */
         />
       )}
     </>

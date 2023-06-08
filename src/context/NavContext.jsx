@@ -4,6 +4,7 @@ const NavContext = createContext();
 
 const NavProvider = ({ children }) => {
   const [openForm, setOpenForm] = useState(false);
+  const [openFormEdit, setOpenFormEdit] = useState(false);
   const [openTable, setOpenTable] = useState(false);
   const [openCards, setOpenCards] = useState(false);
   const openNav = (btn) => {
@@ -11,6 +12,16 @@ const NavProvider = ({ children }) => {
       case "home":
         {
           setOpenForm(false);
+          setOpenFormEdit(false);
+          setOpenTable(false);
+          setOpenCards(false);
+        }
+        break;
+
+      case "edit":
+        {
+          setOpenForm(false);
+          setOpenFormEdit(true);
           setOpenTable(false);
           setOpenCards(false);
         }
@@ -19,6 +30,7 @@ const NavProvider = ({ children }) => {
       case "form":
         {
           setOpenForm(true);
+          setOpenFormEdit(false);
           setOpenTable(false);
           setOpenCards(false);
         }
@@ -26,17 +38,19 @@ const NavProvider = ({ children }) => {
 
       case "table":
         {
-          setOpenTable(true);
           setOpenForm(false);
+          setOpenFormEdit(false);
+          setOpenTable(true);
           setOpenCards(false);
         }
         break;
 
       case "cards":
         {
-          setOpenCards(true);
           setOpenForm(false);
+          setOpenFormEdit(false);
           setOpenTable(false);
+          setOpenCards(true);
         }
         break;
 
@@ -46,7 +60,7 @@ const NavProvider = ({ children }) => {
     }
   };
 
-  const data = { openForm, openTable, openCards, openNav };
+  const data = { openForm, openFormEdit, openTable, openCards, openNav };
   return <NavContext.Provider value={data}>{children}</NavContext.Provider>;
 };
 

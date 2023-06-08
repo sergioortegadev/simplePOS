@@ -1,7 +1,7 @@
 import CrudCardRow from "./CrudCardRow";
 import CrudHeader from "./CrudHeader";
 
-const CrudCard = ({ data, setDataToEdit, deleteData }) => {
+const CrudCard = ({ data, setDataToEdit, deleteData, openModal }) => {
   return (
     <>
       <CrudHeader />
@@ -17,6 +17,7 @@ const CrudCard = ({ data, setDataToEdit, deleteData }) => {
               datosElemento={el}
               setDataToEdit={setDataToEdit}
               deleteData={deleteData}
+              openModal={openModal}
             />
           ))
         )}
